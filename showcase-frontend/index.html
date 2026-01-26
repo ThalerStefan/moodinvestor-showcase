@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8"/>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoodInvestor</title>
+
+    <link rel="icon" href="./favicon.ico" />
+
+    
+    <script>
+        try {
+            const savedTheme = localStorage.getItem("mi-theme") || "theme-dark";
+            document.documentElement.classList.add(savedTheme);
+        } catch (e) {
+            document.documentElement.classList.add("theme-dark");
+        }
+    </script>
+    
+
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/theme.css" />
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-7.1.0-web/css/all.css"  />
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    
+    <header id="app-navbar" class="fixed-top"></header>
+    <main id="app-root" class="container py-4 flex-grow-1"></main>
+    <footer id="app-footer" class="mt-auto"></footer>
+
+   
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./assets/js/chart.umd.min.js"></script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+
+    <!-- Clerk Script Loader -->
+    <script crossorigin="anonymous" src="./clerk-loader.js" type="text/javascript" defer></script>
+
+    <script type="module" src="./app/main.js"></script>
+
+
+</body>
+
+</html>

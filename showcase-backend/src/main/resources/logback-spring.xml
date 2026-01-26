@@ -1,0 +1,26 @@
+<configuration>
+
+  <!-- Log-Verzeichnis -->
+  <property name="LOG_PATH" value="logs" />
+
+  <!-- Einmaliger Timestamp beim Start, von Logback selbst -->
+  <timestamp key="RUN_TIMESTAMP" datePattern="yyyy-MM-dd_HH-mm-ss" />
+
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <!-- Dateiname mit Timestamp -->
+    <file>${LOG_PATH}/moodinvestor-${RUN_TIMESTAMP}.log</file>
+    <append>true</append>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="FILE" />
+  </root>
+
+  <logger name="at.stefan.moodinvestor" level="DEBUG" />
+
+</configuration>
+
+

@@ -1,0 +1,1066 @@
+/* ==========================================================================
+   MoodInvestor Bootstrap Theme
+   Usage: <body class="theme-dark"> … </body>
+          <body class="theme-light"> … </body>
+   ========================================================================== */
+
+/* ---------- Brand-Palette (fixed) ---------- */
+:root {
+  --brand-primary: #3ffeab;
+  /* Accent light turquoise */
+  --brand-primary-d: #2bc07d;
+  /* Hover/Active */
+  --brand-gold: #e0ae2e;
+  /* Premium/Highlights */
+  /*--brand-bg-dark: #2c2c2c;*/
+  --brand-bg-dark: #001722;
+  /* Dark background */
+  --brand-form-dark: #ada9a8;
+  /* Form areas in Dark Theme */
+  --brand-font-dark: #f8f8f8;
+  /* Font on dark background */
+
+  /* RGBs */
+  --brand-primary-rgb: 63, 254, 171;
+  --brand-primary-d-rgb: 43, 192, 125;
+  --brand-gold-rgb: 224, 174, 46;
+  --brand-bg-dark-rgb: 98, 102, 105;
+  --brand-form-dark-rgb: 173, 169, 168;
+  --brand-font-dark-rgb: 248, 248, 248;
+}
+
+/* ==========================================================================
+   Global Styles
+   ========================================================================== */
+
+a {
+  color: var(--brand-gold);
+}
+
+main {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.table tbody tr:hover {
+  cursor: default;
+}
+
+.border-style {
+  border-color: var(--bs-border-color);
+}
+
+#toolbar {
+  margin-bottom: 12px;
+}
+
+.card-hover {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  box-shadow:
+    8px 0 15px rgba(0, 0, 0, 0.5),
+    0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.btn:hover {
+  box-shadow:
+    8px 0 15px rgba(0, 0, 0, 0.5),
+    0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* =============================
+   Price change flash animation
+   2s hold + fade back
+   ============================= */
+
+@keyframes miPriceFlashUp {
+  0%,
+  25% {
+    color: var(--bs-success);
+  }
+  100% {
+    color: var(--bs-body-color);
+  }
+}
+
+@keyframes miPriceFlashDown {
+  0%,
+  25% {
+    color: var(--bs-danger);
+  }
+  100% {
+    color: var(--bs-body-color);
+  }
+}
+
+/* Higher specificity + animation wins over Bootstrap */
+.theme-dark .mi-price-flash-up,
+.theme-light .mi-price-flash-up {
+  animation: miPriceFlashUp 8s ease-out;
+  animation-fill-mode: both;
+}
+
+.theme-dark .mi-price-flash-down,
+.theme-light .mi-price-flash-down {
+  animation: miPriceFlashDown 8s ease-out;
+  animation-fill-mode: both;
+}
+
+/* =============================
+   Logo visibility by theme
+   ============================= */
+.theme-light-inline,
+.theme-dark-inline {
+  display: none !important;
+  /* overrides d-none */
+}
+
+.theme-light .theme-light-inline {
+  display: inline-block !important;
+}
+
+.theme-dark .theme-dark-inline {
+  display: inline-block !important;
+}
+
+/* =============================
+   Academy Source Labels
+   ============================= */
+
+/* Base style for all labels */
+.mi-source-badge {
+  font-size: .75rem;
+  border-radius: 6px;
+  padding: .15rem .45rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  border-width: 1px;
+  border-style: solid;
+}
+
+/* Icon & text simply inherit the color */
+.mi-source-icon,
+.mi-source-text {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Light theme variant */
+.theme-light .mi-source-badge {
+  background-color: #ffffff;
+  color: #404040;
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+/* Dark theme variant */
+.theme-dark .mi-source-badge {
+  background-color: #363636;
+  color: var(--brand-font-dark);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* =============================
+   Article Image Position
+   ============================= */
+
+.article-float-image {
+  float: right;
+  max-width: 400px;
+  /* can be adjusted */
+  margin: 0 0 1rem 1rem;
+  /* distance left/bottom from text */
+  border-radius: .5rem;
+  /* optional, matches card appearance */
+}
+
+
+
+/* ==========================================================================
+   DARK THEME
+   ========================================================================== */
+.theme-dark {
+  /* Bootstrap base colors */
+  --bs-body-bg: var(--brand-bg-dark);
+  --bs-body-color: var(--brand-font-dark);
+  --bs-secondary-color: rgba(var(--brand-font-dark-rgb), 0.75);
+  --bs-link-color: var(--brand-primary);
+  --bs-link-hover-color: #29b976;
+
+  --bs-border-color: rgba(255, 255, 255, 0.12);
+
+  /* Brand mapping */
+  --bs-primary: var(--brand-primary);
+  --bs-primary-rgb: var(--brand-primary-rgb);
+  --bs-success: var(--brand-primary-d);
+  --bs-success-rgb: var(--brand-primary-d-rgb);
+  --bs-warning: var(--brand-gold);
+  --bs-warning-rgb: var(--brand-gold-rgb);
+
+  --bs-tertiary-bg: rgba(var(--brand-form-dark-rgb), 0.25);
+  --bs-emphasis-color: var(--brand-font-dark);
+}
+
+
+
+/* Navbar */
+.theme-dark .navbar,
+.theme-dark .navbar.navbar-dark,
+.theme-dark .navbar.bg-dark {
+  background-color: #191919 !important;
+  color: var(--brand-font-dark);
+  border-bottom: 1px solid var(--bs-border-color);
+}
+
+.theme-dark .navbar .navbar-brand,
+.theme-dark .navbar .nav-link {
+  color: var(--brand-font-dark) !important;
+}
+
+.theme-dark .navbar .nav-link.active,
+.theme-dark .navbar .nav-link:focus,
+.theme-dark .navbar .nav-link:hover {
+  color: var(--brand-primary) !important;
+}
+
+.theme-dark .navbar-toggler {
+  border-color: rgba(255, 255, 255, .25);
+}
+
+.theme-dark .navbar-toggler-icon {
+  filter: invert(1) grayscale(100%);
+}
+
+/* Buttons */
+.theme-dark .btn-primary {
+  --bs-btn-color: #1c1c1c;
+  --bs-btn-bg: var(--brand-primary);
+  --bs-btn-border-color: var(--brand-primary);
+  --bs-btn-hover-bg: var(--brand-primary-d);
+  --bs-btn-hover-border-color: var(--brand-primary-d);
+  --bs-btn-active-bg: var(--brand-primary-d);
+  --bs-btn-active-border-color: var(--brand-primary-d);
+}
+
+.theme-dark .btn-outline-primary {
+  --bs-btn-color: var(--brand-primary);
+  --bs-btn-border-color: var(--brand-primary);
+  --bs-btn-hover-color: #1c1c1c;
+  --bs-btn-hover-bg: var(--brand-primary);
+  --bs-btn-hover-border-color: var(--brand-primary);
+}
+
+.theme-dark .btn-warning {
+  --bs-btn-color: #1c1c1c;
+  --bs-btn-bg: var(--brand-gold);
+  --bs-btn-border-color: var(--brand-gold);
+  --bs-btn-hover-bg: rgba(var(--brand-gold-rgb), 0.9);
+  --bs-btn-hover-border-color: rgba(var(--brand-gold-rgb), 0.9);
+}
+
+.theme-dark .btn-outline-secondary {
+  --bs-btn-color: var(--brand-font-dark);
+  /* light text */
+  --bs-btn-border-color: var(--brand-font-dark);
+  /* light outline */
+  --bs-btn-hover-color: #1c1c1c;
+  /* good contrast on hover */
+  --bs-btn-hover-bg: var(--brand-font-dark);
+  --bs-btn-hover-border-color: var(--brand-font-dark);
+  --bs-btn-active-color: #1c1c1c;
+  --bs-btn-active-bg: var(--brand-font-dark);
+  --bs-btn-active-border-color: var(--brand-font-dark);
+  --bs-btn-focus-shadow-rgb: var(--brand-primary-rgb);
+  /* nice focus */
+}
+
+/* Badges & Alerts */
+.theme-dark .badge.bg-warning {
+  background-color: var(--brand-primary-d) !important;
+  color: #1c1c1c;
+}
+
+.theme-dark .alert-warning {
+  --bs-alert-color: #1c1c1c;
+  --bs-alert-bg: rgba(var(--brand-gold-rgb), 0.25);
+  --bs-alert-border-color: rgba(var(--brand-gold-rgb), 0.45);
+}
+
+/* Tables */
+.theme-dark .table {
+  --bs-table-color: var(--brand-font-dark);
+  --bs-table-bg: transparent;
+  --bs-table-border-color: var(--bs-border-color);
+  --bs-table-striped-bg: rgba(255, 255, 255, 0.04);
+  --bs-table-hover-bg: rgba(var(--brand-primary-d-rgb), 0.15);
+}
+
+.theme-dark .table thead th {
+  background-color: var(--brand-primary-d);
+  color: #1c1c1c;
+  border-color: var(--brand-primary-d);
+}
+
+.theme-dark .table> :not(caption)>*>* {
+  background-color: transparent;
+}
+
+/* Form areas */
+.theme-dark .form-control,
+.theme-dark .form-select,
+.theme-dark .input-group-text,
+.theme-dark .form-control:disabled,
+.theme-dark .form-control[readonly] {
+  color: var(--brand-font-dark);
+  background-color: rgba(var(--brand-form-dark-rgb), 0.25);
+  border-color: var(--bs-border-color);
+}
+
+.theme-dark .form-control:focus,
+.theme-dark .form-select:focus {
+  color: var(--brand-font-dark);
+  background-color: rgba(var(--brand-bg-dark-rgb), 1.0);
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 .2rem rgba(var(--brand-primary-rgb), .25);
+}
+
+.theme-dark .form-check-input:checked {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+.theme-dark .form-text {
+  color: var(--bs-secondary-color);
+}
+
+/* Cards / Panels */
+.theme-dark .card {
+  background-color: rgba(var(--brand-form-dark-rgb), 0.18);
+  color: var(--brand-font-dark);
+  border-color: var(--bs-border-color);
+}
+
+.theme-dark .card-header {
+  background-color: rgba(var(--brand-form-dark-rgb), 0.3);
+  border-bottom-color: var(--bs-border-color);
+}
+
+.theme-dark .stat-key,
+.theme-dark .stat-value {
+  color: var(--brand-gold);
+}
+
+/* Footer */
+.theme-dark footer,
+.theme-dark .footer {
+  background-color: #191919;
+  color: var(--brand-font-dark);
+  border-top: 1px solid var(--bs-border-color);
+}
+
+.theme-dark footer a,
+.theme-dark .footer a {
+  color: var(--brand-primary);
+}
+
+.theme-dark footer a:hover,
+.theme-dark .footer a:hover {
+  color: var(--brand-primary-d);
+}
+
+/* Ticker */
+.theme-dark .price-ticker {
+  background: var(--brand-bg-dark);
+  color: var(--brand-font-dark);
+  border: 1px solid var(--brand-gold);
+}
+
+.theme-dark .badge-ticker {
+  color: #ffffff;
+}
+
+/* Focus Rings */
+.theme-dark *:focus-visible {
+  outline: .2rem solid rgba(var(--brand-primary-rgb), .65);
+  outline-offset: .15rem;
+}
+
+/* ==========================================================================
+   LIGHT THEME
+   Background: #f8f8f8 | Text: #626669
+   ========================================================================== */
+.theme-light {
+  /* Base colors */
+  --bs-body-bg: #e4e4e4;
+  --bs-body-color: #404040;
+  --bs-secondary-color: rgba(98, 102, 105, 0.75);
+  --bs-link-color: var(--brand-primary-d);
+  /* slight darkening looks more harmonious in light theme */
+  --bs-link-hover-color: #1fa566;
+
+  --bs-border-color: rgba(0, 0, 0, 0.12);
+
+  /* Brand mapping remains */
+  --bs-primary: var(--brand-primary);
+  --bs-primary-rgb: var(--brand-primary-rgb);
+  --bs-success: var(--brand-primary-d);
+  --bs-success-rgb: var(--brand-primary-d-rgb);
+  --bs-warning: var(--brand-gold);
+  --bs-warning-rgb: var(--brand-gold-rgb);
+
+  /* Component backgrounds */
+  --bs-tertiary-bg: #ffffff;
+  --bs-emphasis-color: #222;
+}
+
+/* Navbar */
+.theme-light .navbar,
+.theme-light .navbar.bg-light,
+.theme-light .navbar.navbar-light {
+  background-color: #f8f8f8 !important;
+  color: #626669;
+  border-bottom: 1px solid var(--bs-border-color);
+}
+
+.theme-light .navbar .navbar-brand,
+.theme-light .navbar .nav-link {
+  color: #626669 !important;
+}
+
+.theme-light .navbar .nav-link.active,
+.theme-light .navbar .nav-link:focus,
+.theme-light .navbar .nav-link:hover {
+  color: var(--brand-primary-d) !important;
+}
+
+.theme-light .navbar-toggler {
+  border-color: rgba(0, 0, 0, .15);
+}
+
+.theme-light .navbar-toggler-icon {
+  filter: none;
+}
+
+/* Buttons (same as Dark, working via CSS vars) */
+.theme-light .btn-primary {
+  --bs-btn-color: #1c1c1c;
+  --bs-btn-bg: var(--brand-primary);
+  --bs-btn-border-color: var(--brand-primary);
+  --bs-btn-hover-bg: var(--brand-primary-d);
+  --bs-btn-hover-border-color: var(--brand-primary-d);
+  --bs-btn-active-bg: var(--brand-primary-d);
+  --bs-btn-active-border-color: var(--brand-primary-d);
+}
+
+.theme-light .btn-outline-primary {
+  --bs-btn-color: var(--brand-primary-d);
+  --bs-btn-border-color: var(--brand-primary-d);
+  --bs-btn-hover-color: #1c1c1c;
+  --bs-btn-hover-bg: var(--brand-primary);
+  --bs-btn-hover-border-color: var(--brand-primary);
+}
+
+.theme-light .btn-warning {
+  --bs-btn-color: #1c1c1c;
+  --bs-btn-bg: var(--brand-gold);
+  --bs-btn-border-color: var(--brand-gold);
+  --bs-btn-hover-bg: rgba(var(--brand-gold-rgb), 0.9);
+  --bs-btn-hover-border-color: rgba(var(--brand-gold-rgb), 0.9);
+}
+
+
+/* Badges & Alerts */
+.theme-light .badge.bg-warning {
+  background-color: var(--brand-primary-d) !important;
+  color: #1c1c1c;
+}
+
+.theme-light .alert-warning {
+  --bs-alert-color: #3c2f00;
+  --bs-alert-bg: rgba(var(--brand-gold-rgb), 0.15);
+  --bs-alert-border-color: rgba(var(--brand-gold-rgb), 0.35);
+}
+
+/* Tables */
+.theme-light .table {
+  --bs-table-color: #3e4245;
+  /* slightly darker than body */
+  --bs-table-bg: transparent;
+  --bs-table-border-color: var(--bs-border-color);
+  --bs-table-striped-bg: rgba(0, 0, 0, 0.03);
+  --bs-table-hover-bg: rgba(var(--brand-primary-d-rgb), 0.12);
+}
+
+.theme-light .table thead th {
+  background-color: var(--brand-primary-d);
+  color: #1c1c1c;
+  border-color: var(--brand-primary-d);
+}
+
+.theme-light .table> :not(caption)>*>* {
+  background-color: transparent;
+}
+
+/* Form areas (light) */
+.theme-light .form-control,
+.theme-light .form-select,
+.theme-light .input-group-text,
+.theme-light .form-control:disabled,
+.theme-light .form-control[readonly] {
+  color: #3e4245;
+  background-color: #ffffff;
+  /* clear, light inputs */
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.theme-light .form-control::placeholder {
+  color: rgba(98, 102, 105, .65);
+}
+
+.theme-light .form-control:focus,
+.theme-light .form-select:focus {
+  color: #2e3133;
+  background-color: #ffffff;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 .2rem rgba(var(--brand-primary-rgb), .25);
+}
+
+.theme-light .form-check-input:checked {
+  background-color: var(--brand-primary-d);
+  border-color: var(--brand-primary-d);
+}
+
+.theme-light .form-text {
+  color: rgba(98, 102, 105, .8);
+}
+
+/* Cards / Panels */
+.theme-light .card {
+  background-color: #ffffff;
+  color: #3e4245;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.theme-light .card-header {
+  background-color: #f2f2f2;
+  /* slight separation */
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+}
+
+.theme-light .stat-key,
+.theme-light .stat-value {
+  color: var(--brand-gold);
+}
+
+/* Footer */
+.theme-light footer,
+.theme-light .footer {
+  background-color: #f8f8f8;
+  color: #626669;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.theme-light footer a,
+.theme-light .footer a {
+  color: var(--brand-primary-d);
+}
+
+.theme-light footer a:hover,
+.theme-light .footer a:hover {
+  color: var(--brand-primary);
+}
+
+/* Ticker */
+.theme-light .price-ticker {
+  background: #ffffff;
+  color: #626669;
+  border: 2px solid var(--brand-gold);
+}
+
+.theme-light .badge-ticker {
+  color: #000000;
+}
+
+/* Focus Rings */
+.theme-light *:focus-visible {
+  outline: .2rem solid rgba(var(--brand-primary-rgb), .6);
+  outline-offset: .15rem;
+}
+
+/* ===========================
+   Fear & Greed Gauge (SVG)
+   =========================== */
+.pfg-gauge {
+
+  --pfg-bg: rgba(var(--brand-form-dark-rgb)1.0);
+  /* Background */
+  --pfg-fg: var(--bs-body-color);
+  /* Text color */
+  --pfg-ring: var(--bs-border-color);
+  /* Ring color */
+
+  /* Zone colors */
+  --pfg-z1: #EF4444;
+  /* Extreme Fear */
+  --pfg-z2: #F87171;
+  /* Fear */
+  --pfg-z3: #2DCB91;
+  /* Neutral */
+  --pfg-z4: #60A5FA;
+  /* Greed */
+  --pfg-z5: #3B82F6;
+  /* Extreme Greed */
+
+  position: relative;
+  display: grid;
+  gap: .25rem;
+  justify-items: center;
+  padding: .75rem;
+  background: var(--pfg-bg);
+  color: var(--pfg-fg);
+
+  width: clamp(260px, 40vw, 600px);
+  margin-inline: auto;
+  /* centered in card */
+
+}
+
+.pfg-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Info area top right: value bubble and category */
+.pfg-gauge .pfg-info {
+  position: relative;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .2rem .4rem;
+}
+
+/* Round bubble for current value */
+.pfg-gauge .pfg-bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Color adjustment per zone */
+.pfg-gauge .pfg-bubble.z1 {
+  background-color: var(--pfg-z1);
+}
+
+.pfg-gauge .pfg-bubble.z2 {
+  background-color: var(--pfg-z2);
+}
+
+.pfg-gauge .pfg-bubble.z3 {
+  background-color: var(--pfg-z3);
+}
+
+.pfg-gauge .pfg-bubble.z4 {
+  background-color: var(--pfg-z4);
+}
+
+.pfg-gauge .pfg-bubble.z5 {
+  background-color: var(--pfg-z5);
+}
+
+/* "Now:" text left of the category */
+.pfg-gauge .pfg-now-text {
+  font-weight: 600;
+  font-size: .9rem;
+  color: var(--bs-body-color);
+}
+
+/* Current category text (Fear, Greed, …) */
+.pfg-gauge .pfg-now-state {
+  font-weight: 700;
+  font-size: .9rem;
+}
+
+/* Color adjustment per zone */
+.pfg-gauge .pfg-now-state.z1 {
+  color: var(--pfg-z1);
+}
+
+.pfg-gauge .pfg-now-state.z2 {
+  color: var(--pfg-z2);
+}
+
+.pfg-gauge .pfg-now-state.z3 {
+  color: var(--pfg-z3);
+}
+
+.pfg-gauge .pfg-now-state.z4 {
+  color: var(--pfg-z4);
+}
+
+.pfg-gauge .pfg-now-state.z5 {
+  color: var(--pfg-z5);
+}
+
+/* Range descriptions at bottom: Extreme Fear/Greed */
+.pfg-gauge .pfg-range {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: .1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 1;
+}
+
+.pfg-gauge .pfg-range .left-label {
+  color: var(--pfg-z1);
+  text-align: left;
+}
+
+.pfg-gauge .pfg-range .right-label {
+  color: var(--pfg-z5);
+  text-align: right;
+}
+
+/* Numbers (0, 50, 100) on the semicircle */
+.pfg-gauge .tick-label {
+  font-size: .8rem;
+  font-weight: 600;
+  fill: var(--pfg-fg);
+  opacity: .9;
+}
+
+/* Zone color areas in the semicircle */
+.pfg-gauge .zone {
+  stroke: none;
+  opacity: 1;
+}
+
+.pfg-gauge .zone.z1 {
+  fill: var(--pfg-z1);
+}
+
+.pfg-gauge .zone.z2 {
+  fill: var(--pfg-z2);
+}
+
+.pfg-gauge .zone.z3 {
+  fill: var(--pfg-z3);
+}
+
+.pfg-gauge .zone.z4 {
+  fill: var(--pfg-z4);
+}
+
+.pfg-gauge .zone.z5 {
+  fill: var(--pfg-z5);
+}
+
+/* Needle (triangle) – line rules kept for compatibility */
+.pfg-gauge .needle line {
+  stroke: var(--pfg-fg);
+  stroke-width: 3;
+  stroke-linecap: round;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .50));
+}
+
+.pfg-gauge .needle .hub {
+  fill: var(--pfg-fg);
+}
+
+
+/* -------------------------------------------
+   Price Ticker: Layout & Animation (global)
+   ------------------------------------------- */
+.price-ticker {
+  overflow: hidden;
+}
+
+.price-ticker .ticker-viewport {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.price-ticker .ticker-track {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+  animation: mi-ticker-marquee 35s linear infinite;
+  /* slow, steady */
+}
+
+@keyframes mi-ticker-marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+
+  /* because we duplicate the content */
+}
+
+/* ==========================================================================
+   Chart.js – Theme-based color adjustment
+   ========================================================================== */
+
+/* Dark Theme: Axes, gridlines, labels */
+.theme-dark .chartjs-render-monitor,
+.theme-dark canvas[id*="Chart"] {
+  color: var(--brand-font-dark) !important;
+  /* font color */
+}
+
+.theme-dark .chartjs-axis-line,
+.theme-dark .chartjs-tick,
+.theme-dark .chartjs-label {
+  color: var(--brand-font-dark) !important;
+}
+
+/* Chart.js takes text colors from canvas context, so add via JS */
+.theme-dark .chart-container {
+  --chart-grid-color: rgba(255, 255, 255, 0.15);
+  --chart-text-color: var(--brand-font-dark);
+}
+
+.theme-dark #portfolioTotal {
+  color: var(--brand-primary);
+}
+
+/* Light Theme */
+.theme-light .chartjs-render-monitor,
+.theme-light canvas[id*="Chart"] {
+  color: #626669 !important;
+  /* same color as body text */
+}
+
+.theme-light .chartjs-axis-line,
+.theme-light .chartjs-tick,
+.theme-light .chartjs-label {
+  color: #626669 !important;
+}
+
+.theme-light .chart-container {
+  --chart-grid-color: rgba(0, 0, 0, 0.15);
+  --chart-text-color: #626669;
+}
+
+.theme-light #portfolioTotal {
+  color: var(--brand-primary-d);
+}
+
+#emotionChart {
+  max-height: 250px;
+}
+
+.mi-chart-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+}
+
+@media (min-width: 992px) {
+  .mi-chart-wrapper {
+    height: 260px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .mi-chart-wrapper {
+    height: 300px;
+  }
+}
+
+#portfolioChart {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+
+/* ==========================================================================
+   Pagination - per theme
+   ========================================================================== 
+*/
+:root {
+  --mi-disabled-bg: #ada9a8;
+  /* desired gray */
+  --mi-disabled-fg: #3ffeab;
+  /* your green */
+}
+
+/* Inputs, Textareas, Selects – disabled & readonly */
+.theme-dark .form-control:disabled,
+.theme-dark .form-control[readonly],
+.theme-dark .form-select:disabled,
+.theme-light .form-control:disabled,
+.theme-light .form-control[readonly],
+.theme-light .form-select:disabled {
+  background-color: var(--mi-disabled-bg) !important;
+  color: var(--mi-disabled-fg) !important;
+  border-color: rgba(0, 0, 0, .25) !important;
+  /* subtle contour */
+  opacity: 1 !important;
+  /* disable Bootstrap decolorization */
+  cursor: not-allowed;
+}
+
+/* Placeholder color in disabled fields */
+.theme-dark .form-control:disabled::placeholder,
+.theme-dark .form-control[readonly]::placeholder,
+.theme-light .form-control:disabled::placeholder,
+.theme-light .form-control[readonly]::placeholder {
+  color: var(--mi-disabled-fg);
+  opacity: .8;
+}
+
+/* Input-group text (if disabled is used) */
+.theme-dark .input-group-text:has(+ .form-control:disabled),
+.theme-dark .input-group-text:has(+ .form-control[readonly]),
+.theme-light .input-group-text:has(+ .form-control:disabled),
+.theme-light .input-group-text:has(+ .form-control[readonly]) {
+  background-color: var(--mi-disabled-bg) !important;
+  color: var(--mi-disabled-fg) !important;
+  border-color: rgba(0, 0, 0, .25) !important;
+}
+
+/* Checkboxes/Radio disabled – optional if desired */
+.theme-dark .form-check-input:disabled,
+.theme-light .form-check-input:disabled {
+  background-color: var(--mi-disabled-bg) !important;
+  border-color: rgba(0, 0, 0, .25) !important;
+}
+
+.theme-dark .form-check-input:disabled~.form-check-label,
+.theme-light .form-check-input:disabled~.form-check-label {
+  color: var(--mi-disabled-fg) !important;
+}
+
+/* DARK */
+.theme-dark {
+  --bs-pagination-color: var(--brand-primary);
+  /* page numbers */
+  --bs-pagination-bg: #2a2a2a;
+  /* button BG */
+  --bs-pagination-border-color: #3a3a3a;
+  --bs-pagination-hover-color: var(--brand-primary);
+  --bs-pagination-hover-bg: #3a3a3a;
+  --bs-pagination-hover-border-color: #4a4a4a;
+  --bs-pagination-active-color: #1c1c1c;
+  /* text on active button */
+  --bs-pagination-active-bg: var(--brand-primary);
+  /* active = Brand green */
+  --bs-pagination-active-border-color: var(--brand-primary);
+  --bs-pagination-disabled-color: #9aa0a6;
+  /* disabled text */
+  --bs-pagination-disabled-bg: #333333;
+  /* disabled BG */
+  --bs-pagination-disabled-border-color: #3a3a3a;
+  --bs-pagination-focus-box-shadow: 0 0 0 .2rem rgba(var(--brand-primary-rgb), .25);
+}
+
+/* LIGHT */
+.theme-light {
+  --bs-pagination-color: var(--brand-primary-d);
+  --bs-pagination-bg: #ffffff;
+  --bs-pagination-border-color: rgba(0, 0, 0, .15);
+  --bs-pagination-hover-color: var(--brand-primary-d);
+  --bs-pagination-hover-bg: #f2f2f2;
+  --bs-pagination-hover-border-color: rgba(0, 0, 0, .25);
+  --bs-pagination-active-color: #1c1c1c;
+  --bs-pagination-active-bg: var(--brand-primary);
+  --bs-pagination-active-border-color: var(--brand-primary);
+  --bs-pagination-disabled-color: #9aa0a6;
+  --bs-pagination-disabled-bg: #e9ecef;
+  --bs-pagination-disabled-border-color: rgba(0, 0, 0, .15);
+  --bs-pagination-focus-box-shadow: 0 0 0 .2rem rgba(var(--brand-primary-rgb), .25);
+}
+
+/* Finishing touches: size, radius, ellipsis */
+.pagination .page-link {
+  border-radius: .35rem;
+  padding: .25rem .55rem;
+}
+
+.pagination .page-item.disabled .page-link {
+  pointer-events: none;
+}
+
+.pagination .page-item.disabled .page-link span {
+  /* Ellipsis … */
+  color: inherit;
+}
+
+/* === Pagination: hard overrides per theme === */
+
+/* DARK */
+.theme-dark .pagination .page-link {
+  color: var(--brand-primary) !important;
+  background-color: #2a2a2a !important;
+  border-color: #3a3a3a !important;
+}
+
+.theme-dark .pagination .page-link:hover {
+  color: var(--brand-primary) !important;
+  background-color: #3a3a3a !important;
+  border-color: #4a4a4a !important;
+}
+
+.theme-dark .pagination .page-item.active .page-link {
+  color: #1c1c1c !important;
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+}
+
+.theme-dark .pagination .page-item.disabled .page-link {
+  color: #9aa0a6 !important;
+  background-color: #3f3f3f !important;
+  border-color: #3a3a3a !important;
+}
+
+/* LIGHT */
+.theme-light .pagination .page-link {
+  color: var(--brand-primary-d) !important;
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, .15) !important;
+}
+
+.theme-light .pagination .page-link:hover {
+  color: var(--brand-primary-d) !important;
+  background-color: #f2f2f2 !important;
+  border-color: rgba(0, 0, 0, .25) !important;
+}
+
+.theme-light .pagination .page-item.active .page-link {
+  color: #1c1c1c !important;
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+}
+
+.theme-light .pagination .page-item.disabled .page-link {
+  color: #9aa0a6 !important;
+  background-color: #e9ecef !important;
+  border-color: rgba(0, 0, 0, .15) !important;
+}
+
+/* Appearance/size as before */
+.pagination .page-link {
+  border-radius: .35rem;
+  padding: .25rem .55rem;
+}

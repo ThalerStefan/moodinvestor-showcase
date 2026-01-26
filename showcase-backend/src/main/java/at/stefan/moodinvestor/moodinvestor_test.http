@@ -1,0 +1,37 @@
+### 📦 Assets – Neues Asset anlegen
+POST http://localhost:8080/api/assets
+Content-Type: application/json
+
+{
+  "symbol": "TEST",
+  "name": "Test Asset",
+  "assetType": "CRYPTO"
+}
+
+### 💰 Preise – Mock-Refresh aller Preise
+POST http://localhost:8080/api/prices/refresh
+Content-Type: application/json
+
+### 💹 Transaktionen – Kauf mit PFG-Fragen
+POST http://localhost:8080/api/txns
+Content-Type: application/json
+
+{
+  "symbol": "BTC",
+  "timestamp": "2025-10-22T18:00:00",
+  "side": "BUY",
+  "quantity": 0.005,
+  "price": 65000.00,
+  "note": "Testkauf über REST Client",
+  "pfg": [3, 4, 3, 4, 3]
+}
+
+### 😃 Emotion Log – Stimmung erfassen
+POST http://localhost:8080/api/emotions
+Content-Type: application/json
+
+{
+  "day": "2025-10-22",
+  "mood": 4,
+  "note": "Super produktiver Tag!"
+}
