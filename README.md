@@ -49,7 +49,7 @@ The application is designed as a high-performance **Thin-Client Architecture**. 
 | :--- | :--- |
 | **Languages** | Java 21, JavaScript (ES6+), SQL |
 | **Frameworks** | Spring Boot 3.5.9, Spring Security, Hibernate |
-| **Frontend** | Vanilla JS, Vite 7, Bootstrap 5, ApexCharts.js |
+| **Frontend** | Vanilla JS, Vite 7, Bootstrap 5, Charts.js |
 | **Infrastructure** | Docker, Nginx, MariaDB, GitHub Actions |
 | **Tools** | Maven, JUnit 5, Mockito, Flyway |
 
