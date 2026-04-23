@@ -1,4 +1,4 @@
-# <img src="http://www.moodinvestor.com/favicon.ico" width="32" height="32" valign="middle"> MoodInvestor 3.0 – Portfolio Management & Psychological Analysis
+# MoodInvestor 3.0 – Portfolio Management & Psychological Analysis
 
 [![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=java)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.9-brightgreen?style=for-the-badge&logo=springboot)](https://spring.io/projects/spring-boot)
